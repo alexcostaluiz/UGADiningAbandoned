@@ -1,2 +1,5 @@
 # UGADining
-Mobile application for UGA dining hall information and calorie/nutrition tracking
+Mobile application for UGA dining hall information and calorie/nutrition tracking.
+
+## Screenshots
+Coming soon.
