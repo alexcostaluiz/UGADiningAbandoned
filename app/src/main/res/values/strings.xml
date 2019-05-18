@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">UGA Dining</string>
+    <string name="dining_halls">Dining Halls</string>
+
+    <string name="bolton">Bolton</string>
+    <string name="oglethorpe">Oglethorpe</string>
+    <string name="niche">The Niche</string>
+    <string name="snelling">Snelling</string>
+    <string name="village">Village Summit</string>
+
+    <string name="menu">Menus</string>
+    <string name="build_plate">Build Plate</string>
+
+    <string name="empty_pc">—</string>
+    <string name="occupancy_pc">%1$d</string>
+    <string name="empty_pc_with_pc">—%</string>
+    <string name="occupancy_pc_with_pc">%1$d%%</string>
+
+    <string name="serving_label">Serving:</string>
+    <string name="status_label">Status:</string>
+    <string name="occupancy_label">Occupancy:</string>
+
+    <!-- Content Descriptions -->
+    <string name="menu_cd">Menu button</string>
+    <string name="refresh_cd">Refresh button</string>
+    <string name="settings_cd">Settings button</string>
+    <string name="card_icon_cd">Dining hall icon</string>
+    <string name="card_drop_cd">Drop down button for more dining hall information</string>
+</resources>

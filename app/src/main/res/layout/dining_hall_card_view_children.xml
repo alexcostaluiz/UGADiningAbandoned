@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:ignore="SmallSp">
+
+    <ImageView
+        android:id="@+id/card_icon"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:contentDescription="@string/card_icon_cd"
+        android:scaleType="fitXY"
+        android:src="@drawable/imageholder" />
+
+    <RelativeLayout
+        android:id="@+id/card_title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:clipToPadding="false"
+        android:paddingStart="8dp"
+        android:paddingEnd="6dp">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/card_pc_container"
+            android:layout_width="24dp"
+            android:layout_height="20dp"
+            android:layout_centerVertical="true">
+
+            <TextView
+                android:id="@+id/card_pc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/librefranklin_black"
+                android:text="@string/empty_pc"
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <TextView
+            android:id="@+id/card_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_toStartOf="@id/card_drop"
+            android:layout_toEndOf="@id/card_pc_container"
+            android:fontFamily="@font/librefranklin_bold"
+            android:maxLines="1"
+            android:text="@string/bolton"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <ImageView
+            android:id="@+id/card_drop"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/card_drop_cd"
+            android:src="@drawable/drop_down" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/card_collapse"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/card_status"
+                android:fontFamily="@font/librefranklin_bold"
+                android:text="@string/status_label"
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/card_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/librefranklin_bold"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/card_pc2"
+                android:fontFamily="@font/librefranklin_bold"
+                android:text="@string/occupancy_label"
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/card_pc2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/librefranklin_bold"
+                android:text="@string/empty_pc_with_pc"
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_toStartOf="@id/card_meals"
+                android:fontFamily="@font/librefranklin_bold"
+                android:text="@string/serving_label"
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+
+            <TextView
+                android:id="@+id/card_meals"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/librefranklin_bold"
+                android:text=""
+                android:textColor="@color/black"
+                android:textSize="11sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</LinearLayout>
