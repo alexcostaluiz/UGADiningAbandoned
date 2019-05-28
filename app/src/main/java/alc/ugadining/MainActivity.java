@@ -1,21 +1,21 @@
 package alc.ugadining;
 
 import android.animation.ObjectAnimator;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.lifecycle.ViewModelProviders;
 
-import com.android.volley.Request;
-import com.android.volley.toolbox.JsonObjectRequest;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.card.MaterialCardView;
 
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.ArrayList;
 
 /**
  * The main activity of the UGA Dining application.
@@ -24,8 +24,11 @@ import org.json.JSONException;
  */
 public class MainActivity extends AppCompatActivity {
 
+    public static final int SELECT_MENU_ITEM_REQUEST = 7;
+    public static final int VIEW_NUTRITION_REQUEST = 14;
+
     final Fragment menuFragment = new MenuFragment();
-    final Fragment buildPlateFragment = new BuildPlateFragment();
+    final BuildPlateFragment buildPlateFragment = new BuildPlateFragment();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = menuFragment;
 
@@ -50,8 +53,31 @@ public class MainActivity extends AppCompatActivity {
         BottomNavigationView nav = findViewById(R.id.main_nav);
         setUpBottomNavigation(nav);
 
-        fetchOccupancies();
+        AppViewModel model = ViewModelProviders.of(this).get(AppViewModel.class);
+        model.getMenuItems().observe(this, items -> buildPlateFragment.setItems((ArrayList<MenuItem>) items));
+
+        //fetchOccupancies();
     } // onCreate
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == SELECT_MENU_ITEM_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    ArrayList<MenuItem> itemsToAdd = data.getParcelableArrayListExtra("items");
+                    buildPlateFragment.addMenuItem(itemsToAdd, data.getStringExtra("meal"));
+                }
+            }
+        }
+        else if (requestCode == VIEW_NUTRITION_REQUEST) {
+            if (resultCode == RESULT_OK) {
+                if (data != null) {
+                    MenuItem item = data.getParcelableExtra("item");
+                    buildPlateFragment.updateMenuItem(item, data.getStringExtra("meal"));
+                }
+            }
+        }
+    }
 
     /**
      * Configures a {@link com.google.android.material.bottomnavigation.BottomNavigationView}
@@ -63,15 +89,17 @@ public class MainActivity extends AppCompatActivity {
         nav.setOnNavigationItemSelectedListener(menuItem -> {
             if (menuItem.getItemId() == R.id.navigation_menu) {
                 if (active != menuFragment) {
+                    ((TextView) findViewById(R.id.main_toolbar_title)).setText("Dining Halls");
+                    ((BounceScrollView) findViewById(R.id.dining_scroll_view)).updateToolbarTitle();
                     fm.beginTransaction().hide(active).show(menuFragment).commit();
                     active = menuFragment;
-                    ((TextView) findViewById(R.id.main_title)).setText("Dining");
                 }
             } else {
                 if (active != buildPlateFragment) {
+                    ((TextView) findViewById(R.id.main_toolbar_title)).setText("Build Plate");
+                    ((BounceScrollView) findViewById(R.id.build_plate_scroll_view)).updateToolbarTitle();
                     fm.beginTransaction().hide(active).show(buildPlateFragment).commit();
                     active = buildPlateFragment;
-                    ((TextView) findViewById(R.id.main_title)).setText("Build Plate");
                 }
             }
             return true;
@@ -83,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         LoadingBar loading = findViewById(R.id.main_loading_bar);
         loading.show();
         loading.setProgress(95, true);
-        VolleySingleton singleton = VolleySingleton.getInstance(getApplicationContext());
+        /*VolleySingleton singleton = VolleySingleton.getInstance(getApplicationContext());
         String url = "http://ugadining.000webhostapp.com/fetch_card_info.php";
         JsonObjectRequest occupancyRequest = new JsonObjectRequest(
                 Request.Method.GET,
@@ -131,7 +159,7 @@ public class MainActivity extends AppCompatActivity {
                 error -> System.out.println("[ERROR] Failed to fetch occupancies!")
         );
         occupancyRequest.setShouldCache(false);
-        singleton.addToRequestQueue(occupancyRequest);
+        singleton.addToRequestQueue(occupancyRequest);*/
     }
 
     public void refreshOccupancies() {

@@ -1,40 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<alc.ugadining.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/build_plate_scroll_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    app:title_id="@id/build_plate_title"
+    app:toolbar_title_id="@id/main_toolbar_title"
     tools:context=".BuildPlateFragment">
 
     <LinearLayout
+        android:id="@+id/build_plate_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:clipToPadding="false"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingBottom="16dp">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="-6dp"
-            android:fontFamily="@font/montserrat_light"
-            android:text="Sunday, May 18th"
-            android:textColor="@color/black"
-            android:textSize="12sp" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_bold"
-            android:text="Today"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <View
+            android:id="@+id/build_plate_title"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
-            android:background="#acacac" />
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="@string/build_plate"
+            android:textColor="@color/black"
+            android:textSize="26sp" />
+
+        <alc.ugadining.BuildPlateStatsView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <alc.ugadining.MealListView
+            android:id="@+id/build_plate_breakfast"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:meal="breakfast" />
+
+        <alc.ugadining.MealListView
+            android:id="@+id/build_plate_lunch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:meal="lunch" />
+
+        <alc.ugadining.MealListView
+            android:id="@+id/build_plate_dinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            app:meal="dinner" />
 
     </LinearLayout>
 
-
-</ScrollView>
+</alc.ugadining.BounceScrollView>

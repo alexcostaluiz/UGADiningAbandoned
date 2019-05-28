@@ -25,5 +25,6 @@
     <string name="refresh_cd">Refresh button</string>
     <string name="settings_cd">Settings button</string>
     <string name="card_icon_cd">Dining hall icon</string>
+    <string name="close_cd">Close activity</string>
     <string name="card_drop_cd">Drop down button for more dining hall information</string>
 </resources>

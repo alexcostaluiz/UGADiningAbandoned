@@ -4,4 +4,24 @@
         <attr name="title" format="string" />
         <attr name="icon" format="reference" />
     </declare-styleable>
+
+    <declare-styleable name="MealListView">
+        <attr name="meal" format="enum">
+            <enum name="breakfast" value="0" />
+            <enum name="lunch" value="1" />
+            <enum name="dinner" value="2" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="DonutChartLayout">
+        <attr name="chart_title" format="string" />
+        <attr name="chart_parts" format="string" />
+        <attr name="chart_use_center" format="boolean" />
+        <attr name="chart_palette" format="string" />
+    </declare-styleable>
+
+    <declare-styleable name="BounceScrollView">
+        <attr name="title_id" format="reference" />
+        <attr name="toolbar_title_id" format="reference" />
+    </declare-styleable>
 </resources>

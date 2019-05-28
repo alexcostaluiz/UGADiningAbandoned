@@ -26,7 +26,7 @@ public class LoadingBar extends View {
         init();
     }
 
-    public void init() {
+    private void init() {
         rectPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         rectPaint.setColor(0xFFD32F2F);
         rectPaint.setStyle(Paint.Style.FILL);

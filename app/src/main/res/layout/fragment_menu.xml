@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<alc.ugadining.BounceScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/dining_scroll_view"
+    app:title_id="@id/dining_title"
+    app:toolbar_title_id="@id/main_toolbar_title"
     tools:context=".MenuFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -15,6 +18,20 @@
         android:clipToPadding="false"
         android:paddingBottom="16dp">
 
+        <TextView
+            android:id="@+id/dining_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="@string/dining_halls"
+            android:textColor="@color/black"
+            android:textSize="26sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <alc.ugadining.DiningHallCardView
             android:id="@+id/main_bolton_card"
             android:layout_width="150dp"
@@ -22,7 +39,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/main_oglethorpe_card"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dining_title"
             custom:icon="@drawable/imageholder"
             custom:title="@string/bolton" />
 
@@ -33,7 +50,7 @@
             android:layout_marginTop="16dp"
             app:layout_constraintLeft_toRightOf="@id/main_bolton_card"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dining_title"
             custom:icon="@drawable/imageholder"
             custom:title="@string/oglethorpe" />
 
@@ -58,13 +75,13 @@
             app:layout_constraintTop_toBottomOf="@id/main_oglethorpe_card"
             custom:icon="@drawable/imageholder"
             custom:title="@string/snelling" />
-        
+
         <androidx.constraintlayout.widget.Barrier
             android:id="@+id/main_village_card_barrier"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:barrierDirection="bottom"
-            app:constraint_referenced_ids="main_niche_card, main_snelling_card"/>
+            app:constraint_referenced_ids="main_niche_card, main_snelling_card" />
 
         <alc.ugadining.DiningHallCardView
             android:id="@+id/main_village_card"
@@ -78,4 +95,4 @@
             custom:title="@string/village" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</ScrollView>
+</alc.ugadining.BounceScrollView>

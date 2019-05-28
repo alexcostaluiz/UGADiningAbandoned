@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/build_plate_date_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f0f0f0"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/build_plate_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-6dp"
+            android:fontFamily="@font/montserrat_light"
+            android:text="Sunday, May 18th"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/build_plate_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/build_plate_date"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Today"
+            android:textColor="@color/black"
+            android:textSize="24sp" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#e0e0e0" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp">
+
+        <alc.ugadining.DonutChartLayout
+            android:id="@+id/build_plate_calories_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chart_palette="Sunset"
+            app:chart_parts="Breakfast Lunch Dinner"
+            app:chart_title="Calories"
+            app:chart_use_center="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/build_plate_macros_chart"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <alc.ugadining.DonutChartLayout
+            android:id="@+id/build_plate_macros_chart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:chart_palette="Sunset"
+            app:chart_parts="Carbs Protein Fat"
+            app:chart_title="Macros"
+            app:chart_use_center="false"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/build_plate_calories_chart"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<alc.ugadining.DraggableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/food_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/selectable_background"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/food_item_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toStartOf="@id/food_item_calories"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="Two Fried Eggs"
+        android:textColor="@color/black" />
+
+    <TextView
+        android:id="@+id/food_item_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/food_item_name"
+        android:layout_toStartOf="@id/food_item_calories"
+        android:fontFamily="@font/montserrat_regular"
+        android:text="2 eggs"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/food_item_calories"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_centerVertical="true"
+        android:fontFamily="@font/montserrat_semibold"
+        android:text="320"
+        android:textColor="@color/black" />
+
+</alc.ugadining.DraggableRelativeLayout>

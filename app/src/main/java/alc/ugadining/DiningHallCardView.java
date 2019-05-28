@@ -23,7 +23,7 @@ public class DiningHallCardView extends MaterialCardView {
     public DiningHallCardView(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        LayoutInflater.from(context).inflate(R.layout.dining_hall_card_view_children, this);
+        LayoutInflater.from(context).inflate(R.layout.card_view_dining_hall, this);
 
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs,
